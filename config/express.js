@@ -4,19 +4,19 @@
 
 'use strict';
 
-var express        = require('express'),
-    morgan         = require('morgan'),
-    compression    = require('compression'),
-    bodyParser     = require('body-parser'),
+var express = require('express'),
+    morgan = require('morgan'),
+    compression = require('compression'),
+    bodyParser = require('body-parser'),
     methodOverride = require('method-override');
 
 module.exports = function () {
+
     var app = express();
 
-    if(process.env.NODE_ENV === 'development'){
-      app.use(morgan('dev'));
-    }
-    else if(process.env.NODE_ENV === 'production'){
+    if (process.env.NODE_ENV === 'development') {
+        app.use(morgan('dev'));
+    } else if (process.env.NODE_ENV === 'production') {
         app.use(compression());
     }
 
@@ -26,9 +26,10 @@ module.exports = function () {
     app.use(bodyParser.json());
     app.use(methodOverride());
 
-    require('../app/routes/postRoutes');
+    require('../app/routes/postRoutes')(app);
 
     app.use(express.static('./public'));
 
     return app;
+
 };
