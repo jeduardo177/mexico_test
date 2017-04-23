@@ -1,0 +1,28 @@
+{
+  "name": "mexico_test",
+  "version": "1.0.0",
+  "description": "Test",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeduardo177/mexico_test.git"
+  },
+  "author": "Jose Eduardo Pereira Valbuena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeduardo177/mexico_test/issues"
+  },
+  "homepage": "https://github.com/jeduardo177/mexico_test#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "compression": "^1.6.2",
+    "express": "^4.15.2",
+    "method-override": "^2.3.8",
+    "mocha": "^3.2.0",
+    "mongoose": "^4.9.5",
+    "morgan": "^1.8.1"
+  }
+}
