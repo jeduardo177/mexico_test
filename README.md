@@ -1,26 +1,26 @@
 # mexico_test #
 
 Structure of proyect:
-mexico_test/
-    *app/ - conteint all logic code of the proyect (use mvc)
-        *controllers/
-            *postController.js
-        *models/
-            *post.js
-        *routes/
-            *postRoutes.js
-        *validators/
-            *tokenValidator.js
-    *config/ -conteint all configuration of the server
-        *env/
-           *development.js
-        *config.js
-        *express.js
-       * mongoose
-    *test/ -conteint de mochajs test
-        *test.js
-    *package.json
-    *server.js
+* mexico_test/
+    * `app/` - conteint all logic code of the proyect (use mvc)
+        * `controllers/`
+            * `postController.js`
+        * `models/`
+            * `post.js`
+        * `routes/`
+            * `postRoutes.js`
+        * `validators/`
+            * `tokenValidator.js`
+    * `config/` -conteint all configuration of the server
+        * `env/`
+           * `development.js`
+        * `config.js`
+        * `express.js`
+        * `mongoose`
+    * `test/` -conteint de mochajs test
+        * `test.js`
+    * `package.json`
+    * `server.js`
 
 ## Initial setup ##
 
