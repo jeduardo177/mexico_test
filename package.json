@@ -18,11 +18,13 @@
   "homepage": "https://github.com/jeduardo177/mexico_test#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "chai": "^3.5.0",
     "compression": "^1.6.2",
     "express": "^4.15.2",
     "method-override": "^2.3.8",
     "mocha": "^3.2.0",
     "mongoose": "^4.9.5",
-    "morgan": "^1.8.1"
+    "morgan": "^1.8.1",
+    "supertest": "^3.0.0"
   }
 }
