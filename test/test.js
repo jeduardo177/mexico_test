@@ -4,20 +4,23 @@
 
 'use strict';
 
+//Carga las dependencias del modulo
 var assert  = require('assert'),
     should  = require('chai').should(),
     expect  = require('chai').expect,
     request = require('supertest');
 
+//Ruta del server
 var request = request("http://localhost:3000");
 
+//Objeto post a crear
 var post = {
             "id": "",
             "title"  : "Post by Test#1",
             "author" : "Jose Eduardo Pereira",
             "body"   : "This is a post generate by mocha test"
             };
-
+//Objeto post a actualizar
 var postUpdate = {
     "id"     : "",
     "title"  : "Post Update by Test#1",
@@ -25,18 +28,23 @@ var postUpdate = {
     "body"   : "This is a Update generate by mocha test"
 };
 
-
+//Prueba para post
 describe('Test endpoint /blogPosts post', function(){
     it('it should POST a Blog Post', function(done){
+        //end point a probar
         request.post('/blogPosts')
+            //valor enviado en cabecera
             .set('Token', 'prueba_token')
+            //json que se va a crear
             .send({
                 title : post.title,
                 author: post.author,
                 body  : post.body
             })
+            //Se espera json valido y respuesta 200 del server
             .expect('Content-Type', /json/)
             .expect(200)
+            //Valores puestos a prueba segun respuesta
             .end(function (err, res) {
                 expect(res.body).to.have.property('_id');
                 expect(res.body._id).to.not.equal(null);
@@ -56,12 +64,17 @@ describe('Test endpoint /blogPosts post', function(){
     });
 });
 
+//Prueba para get
 describe('Test endpoint /blogPosts get', function(){
     it('It should GET a post by the given id', function(done){
+        //end point a probar
         request.get('/blogPosts?id=' + post.id)
+            //valor enviado en cabecera
             .set('Token', 'prueba_token')
+            //Se espera json valido y respuesta 200 del server
             .expect('Content-Type', /json/)
             .expect(200)
+            //Valores puestos a prueba segun respuesta
             .end(function (err, res) {
                 expect(res.body).to.have.property('_id');
                 expect(res.body._id).to.not.equal(null);
@@ -81,18 +94,24 @@ describe('Test endpoint /blogPosts get', function(){
     });
 });
 
+//Prueba para put
 describe('Test endpoint /blogPosts put', function(){
     it('it should Update a Blog Post by the given id', function(done){
+        //end point a probar
         request.put('/blogPosts')
+            //valor enviado en cabecera
             .set('Token', 'prueba_token')
+            //json a actualizar
             .send({
                 id     : postUpdate.id,
                 title  : postUpdate.title,
                 author : postUpdate.author,
                 body   : postUpdate.body
             })
+            //Se espera json valido y respuesta 200 del server
             .expect('Content-Type', /json/)
             .expect(200)
+            //Valores puestos a prueba segun respuesta
             .end(function (err, res) {
                 expect(res.body).to.have.property('_id');
                 expect(res.body._id).to.not.equal(null);
