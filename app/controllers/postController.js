@@ -8,9 +8,7 @@ var mongoose = require('mongoose'),
     blogPost = mongoose.model('post');
 
 exports.postCreate = function (req, res) {
-
     var post = new blogPost(req.body);
-
     post.save(function (err) {
         if(err){
             return res.status(400).send({
@@ -21,11 +19,9 @@ exports.postCreate = function (req, res) {
             res.json(post);
         }
     });
-
 };
 
 exports.getPostById = function(req, res) {
-
     blogPost.findById( req.query.id , '-__v', function(err, resp) {
         if (err) {
             return res.status(400).send({
@@ -39,9 +35,9 @@ exports.getPostById = function(req, res) {
 };
 
 exports.updatePostById = function(req, res) {
-
-    blogPost.findByIdAndUpdate( req.body.id ,
-            { title : req.body.title, author : req.body.author, body : req.body.body },
+    blogPost.findByIdAndUpdate( { _id: req.body.id } ,
+        { $set: { title : req.body.title, author : req.body.author, body : req.body.body }},
+        { new: true },
         function(err, resp) {
             if (err) {
                 return res.status(400).send({
